@@ -19,26 +19,32 @@
     <main role="main">
         <div class="jumbotron">
             <div class="container-fluid">
-                <h1 class="display-3">Find the Distance</h1>
-                <p>This section is for finding the distance between two points on Googlemaps</p>
+                <h1 class="display-3">Q1 - Where am I?</h1>
+                <p>This will be a question where "From" is given, but need to <br />
+                    work out "to" and then figure out some additional information.
+                </p>
 
                 <!-- Submission Form -->
                 <form class="form-horizontal">
-                    <!-- From Input -->
+                    <!-- "From" Input -->
                     <div class="form-group m-2 row">
-                        <label for="from" class="col-1 control-label">
-                            <i class="far fa-dot-circle black"></i>
-                        </label>
-                        <div class="col-11">
-                            <input type="text" id="from" placeholder="Origin" class="form-control">
+                        <div class="col-6 mx-auto">
+                            <label for="from" class="control-label">
+                                <i class="far fa-dot-circle black"><input type="text" id="from" placeholder="Origin"
+                                        class="form-control"></i>
+
+                            </label>
+                            <div class="">
+
+                            </div>
                         </div>
                     </div>
-                    <!-- To Input -->
+                    <!-- "To" Input -->
                     <div class="form-group m-2 row">
-                        <label for="to" class="col-1 control-label">
+                        <label for="to" class=" control-label">
                             <i class="fas fa-map-marker-alt black"></i>
                         </label>
-                        <div class="col-11">
+                        <div class="">
                             <input type="text" id="to" placeholder="Destination" class="form-control">
                         </div>
                     </div>
@@ -68,6 +74,9 @@
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACak86ai4fkwwcGXmPxWbrCPwNsWoOryw&libraries=places">
     </script>
+    <!-- <script async defer 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACak86ai4fkwwcGXmPxWbrCPwNsWoOryw&callback=initMap">
+    </script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

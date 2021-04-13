@@ -17,8 +17,6 @@ var mapOptions = {
 var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 
 
-//---------------------------------Distance------------------------------------//
-
 // Create a Directions service object to use the route method and get a result for our request
 var directionsService = new google.maps.DirectionsService();
 
@@ -63,25 +61,6 @@ function calcRoute() {
     });
 };
 
-
-//-------------------------------- Location --------------------------------//
-
-// QUIZ: Questions and answers will need to be loaded dynamically
-var question1 = "I once ruled the waves but ruled the whole world in 1966. What country am I?";
-var answer1 = "england";
-var explanation1 = "Britannia rules the waves, etc. and won the world cup in 1966.";
-var question2 = "In what town or city would you find \"Paddington Station\"?";
-var answer2 = "london";
-var explanation2 = "Paddington station is one of London's main, etc. etc.";
-var question3 = "Towering over the Thames River, I'm the number one attraction, big time!";
-var answer3 = "big ben";
-var explanation3 = "Big Ben was built in 1234 and is blah blah";
-var question4 = "What time is shown on the clock face?";
-var answer4 = "13:50";
-
-// Set first Question
-var displayQ1 = document.getElementById("question1").innerHTML += question1;
-
 // Search for a specific location
 var input = document.getElementById('search');
 var searchBox = new google.maps.places.SearchBox(input);
@@ -110,10 +89,18 @@ searchBox.addListener('places_changed', function () {
     if (places.length === 0)
         return;
 
+    // QUIZ: Checks if answer is correct
+    var answer1 = "england";
+    var answer2 = "london";
+    var answer3 = "big ben";
+    var answer4 = "13:50";
     if (name === answer1) {
-        document.getElementById("answer1").style.display = 'block';
-        document.getElementById("answerP1").innerHTML += name.toUpperCase();
-        document.getElementById("submitIn1").style.display = 'none';
+        const output = document.querySelector('#output');
+        output.innerHTML = "<div class='alert-info'>Correct! You can now answer the mini-questions.</div>";
+        document.getElementById("mini-quiz").style.display = 'block';
+        document.getElementById("answer").style.display = 'block';
+        document.getElementById("answerP").innerHTML += name.toUpperCase();
+        document.getElementById("submitIn").style.display = 'none';
     } else {
         output.innerHTML = "<div class='alert-danger'>Nope! Please select another option.</div>";
         document.getElementById("mini-quiz").style.display = 'none';
