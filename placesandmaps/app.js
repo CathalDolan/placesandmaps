@@ -141,6 +141,7 @@ searchBox.addListener('places_changed', function () {
         document.getElementById("answerP3").innerHTML += name.toUpperCase();
         document.getElementById("explanation3").innerHTML += "<strong>Did you know?: </strong>" + explanation3 + "<hr>";
         /// Display fourth question
+        initialize();
         document.getElementById("fourth-question").style.display = 'block';
         document.getElementById("question4").innerHTML += question4;
         var select = document.getElementById("question4Select");
@@ -177,7 +178,33 @@ searchBox.addListener('places_changed', function () {
             bounds.union(p.geometry.viewport);
         else
             bounds.extend(p.geometry.location);
+
+        // Extract the co-ordinates of the selected location
+        // To be used to inject into Street View locator functionality
+        latLng1 = JSON.stringify(p.geometry.location);
+        latLng = latLng1.replace(/\"/g, "");
+        console.log(latLng);
+
+        // Function to switch from map to Street View
+        function initialize() {
+            const panorama = new google.maps.StreetViewPanorama(
+                document.getElementById("googleMap"), {
+                    position: {
+                        lat: 51.5073509,
+                        lng: -0.1277583
+                    },
+                    pov: {
+                        heading: 34,
+                        pitch: 10,
+                    },
+                }
+            );
+            map.setStreetView(panorama);
+            console.log("second latlang", latLng);
+        }
+        initialize();
     });
+
     map.fitBounds(bounds);
 });
 
