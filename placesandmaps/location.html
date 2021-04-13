@@ -24,43 +24,57 @@
                 </div>
 
                 <!-- Questions Section -->
-                <div id="question1" class="section col-3 border p-1">
+                <div class="section col-3 border p-1">
 
                     <!-- Question 1 -->
                     <div>
-                        <h4 id="question1"></h4>
-                        <!-- Submission Form -->
-                        <form id="submitIn1" class="form-horizontal">
-                            <!-- "Search" Input -->
-                            <div class="form-group m-2 row">
-                                <!-- <label for="search" class="col-1 control-label">
-                                        <i class="fas fa-search black"></i>
-                                    </label> -->
-                                <div class="col m-auto p-0 text-center">
-                                    <input type="text" id="search" placeholder="Search" class="form-control">
-                                </div>
-                            </div>
-                        </form>
+                        <h5 id="question1"></h5>
                         <!-- Answer -->
-                        <div id="answer1">
+                        <div id="answer1" class="text-center">
                             <p><strong id="answerP1"></strong></p>
                             <p id="explanation1"></p>
                         </div>
-                        <!-- Output Text displayed -->
-                        <div class="row">
-                            <div id="output" class="text-center"></div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div id="second-question">
+                        <h5 id="question2"></h5>
+                        <!-- Answer -->
+                        <div id="answer2" class="text-center">
+                            <p><strong id="answerP2"></strong></p>
+                            <p id="explanation2"></p>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div id="third-question">
+                        <h5 id="question3"></h5>
+                        <!-- Answer -->
+                        <div id="answer3" class="text-center">
+                            <p><strong id="answerP3"></strong></p>
+                            <p id="explanation3"></p>
                         </div>
                     </div>
 
                     <!-- Question 4 -->
-                    <div id="question4">
-                        <h6 class="mt-2"></h6>
-                        <select id="q1">
-                            <option id="q1o1" value="17:43"> Seventeen minutes to six </option>
-                            <option id="q1o2" value="16:25"> Twenty five past four </option>
-                            <option id="q1o3" value="12:00"> Twelve o'Clock </option>
-                            <option id="q1o4" value="13:50"> Ten minutes to two </option>
-                        </select>
+                    <div id="fourth-question">
+                        <h5 id="question4" class="mt-2"></h5>
+                        <select id="question4Select" class="text-center"></select>
+                    </div>
+
+                    <!-- Answer Input -->
+                    <form id="submitIn" class="form-horizontal">
+                        <!-- "Search" Input -->
+                        <div class="form-group m-2 row">
+                            <div class="col m-auto p-0 text-center">
+                                <input type="text" id="search" placeholder="Search" class="form-control search">
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Output Text displayed -->
+                    <div class="row">
+                        <div id="output" class="text-center"></div>
                     </div>
                 </div>
 

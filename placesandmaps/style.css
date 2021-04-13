@@ -38,7 +38,15 @@ p {
     border: solid 2px #002952 !important;
 }
 
-#mini-quiz,
-#answer {
+#second-question,
+#third-question,
+#fourth-question {
     display: none;
+}
+
+hr {
+    background-color: #002952;
+    width: 25%;
+    height: 20px;
+    margin: 10px auto;
 }

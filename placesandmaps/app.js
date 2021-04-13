@@ -67,20 +67,31 @@ function calcRoute() {
 //-------------------------------- Location --------------------------------//
 
 // QUIZ: Questions and answers will need to be loaded dynamically
-var question1 = "I once ruled the waves but ruled the whole world in 1966. What country am I?";
+var question1 = "Q1 - For centuries I ruled the waves, but in 1966 I ruled the world. What country am I?";
 var answer1 = "england";
 var explanation1 = "Britannia rules the waves, etc. and won the world cup in 1966.";
-var question2 = "In what town or city would you find \"Paddington Station\"?";
+var question2 = "Q2 - In what town or city would you find \"Paddington Station\"?";
 var answer2 = "london";
 var explanation2 = "Paddington station is one of London's main, etc. etc.";
-var question3 = "Towering over the Thames River, I'm the number one attraction, big time!";
+var question3 = "Q3 - Towering over the Thames River, I'm the number one attraction, big time!";
 var answer3 = "big ben";
 var explanation3 = "Big Ben was built in 1234 and is blah blah";
-var question4 = "What time is shown on the clock face?";
-var answer4 = "13:50";
+var question4 = "Q4 - What time is shown on the clock face?";
+var question4Options = {
+    q1o1: 'Seventeen minutes to six',
+    q1o2: 'Twenty five past four',
+    q1o3: 'Twelve o\'Clock',
+    q1o4: 'Ten minutes to two'
+}
+var answer4 = "Ten minutes to two";
+
+//<option id="q1o1" value="17:43"> Seventeen minutes to six </option>
+//<option id="q1o2" value="16:25"> Twenty five past four </option>
+//<option id="q1o3" value="12:00"> Twelve o'Clock </option>
+//<option id="q1o4" value="13:50"> Ten minutes to two </option>
 
 // Set first Question
-var displayQ1 = document.getElementById("question1").innerHTML += question1;
+document.getElementById("question1").innerHTML += question1;
 
 // Search for a specific location
 var input = document.getElementById('search');
@@ -113,11 +124,35 @@ searchBox.addListener('places_changed', function () {
     if (name === answer1) {
         document.getElementById("answer1").style.display = 'block';
         document.getElementById("answerP1").innerHTML += name.toUpperCase();
-        document.getElementById("submitIn1").style.display = 'none';
+        document.getElementById("explanation1").innerHTML += "<strong>Did you know?: </strong>" + explanation1 + "<hr>";
+        // Display 2nd question
+        document.getElementById("second-question").style.display = 'block';
+        document.getElementById("question2").innerHTML += question2;
+    } else if (name === answer2) {
+        document.getElementById("answer2").style.display = 'block';
+        document.getElementById("answerP2").innerHTML += name.toUpperCase();
+        document.getElementById("explanation2").innerHTML += "<strong>Did you know?: </strong>" + explanation2 + "<hr>";
+        // Display 3rd Question
+        document.getElementById("third-question").style.display = 'block';
+        document.getElementById("question3").innerHTML += question3;
+    } else if (name === answer3) {
+        document.getElementById("submitIn").style.display = 'none';
+        document.getElementById("answer3").style.display = 'block';
+        document.getElementById("answerP3").innerHTML += name.toUpperCase();
+        document.getElementById("explanation3").innerHTML += "<strong>Did you know?: </strong>" + explanation3 + "<hr>";
+        /// Display fourth question
+        document.getElementById("fourth-question").style.display = 'block';
+        document.getElementById("question4").innerHTML += question4;
+        var select = document.getElementById("question4Select");
+        for (index in question4Options) {
+            select.options[select.options.length] = new Option(question4Options[index], index);
+            console.log("index", index)
+        }
+    } else if ((document.getElementById("question4Select").value) === answer4) {
+        output.innerHTML = "<div class='alert-success'>Correct & Right!</div>";
     } else {
-        output.innerHTML = "<div class='alert-danger'>Nope! Please select another option.</div>";
-        document.getElementById("mini-quiz").style.display = 'none';
-    }
+        output.innerHTML = "<div class='alert-danger'>Nope! Go on, try again.</div>";
+    };
 
     // Removes any existing markers from previous searches and resets array to 0
     markers.forEach(function (m) {
@@ -158,5 +193,5 @@ var autocompleteFrom = new google.maps.places.Autocomplete(inputFrom, options);
 var inputTo = document.getElementById("to");
 var autocompleteTo = new google.maps.places.Autocomplete(inputTo, options);
 
-var inputSearch = document.getElementById("search");
+var inputSearch = document.getElementById('search');
 var autocompleteSearch = new google.maps.places.Autocomplete(inputSearch, options);
